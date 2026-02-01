@@ -13,8 +13,8 @@ class OptionButton extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         // Reason why we see gaps in between button
-        tapTargetSize: MaterialTapTargetSize.padded,
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+        // tapTargetSize: MaterialTapTargetSize.padded,
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(40),
         ),

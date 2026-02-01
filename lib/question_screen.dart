@@ -13,9 +13,18 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+
+  int currentQuestionIndex = 0;
+
+  void onPick() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final question = questions[0];
+    final question = questions[currentQuestionIndex];
 
     return Container(
       margin: EdgeInsets.all(50),
@@ -35,7 +44,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
           SizedBox(height: 50, width: double.infinity),
           ...question.options.map((option) {
             return OptionButton(
-              onPick: () {},
+              onPick: onPick,
               widget: Text(option, textAlign: TextAlign.center),
             );
           }),
