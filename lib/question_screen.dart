@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sample/data/question_data.dart';
 import 'package:sample/shared/option_button.dart';
 
@@ -16,16 +17,30 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     final question = questions[0];
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(question.text, style: TextStyle(color: Colors.white)),
-        SizedBox(height: 50, width: double.infinity),
-        OptionButton(onPick: () {}, widget: Text(question.options[0])),
-        OptionButton(onPick: () {}, widget: Text(question.options[1])),
-        OptionButton(onPick: () {}, widget: Text(question.options[2])),
-        OptionButton(onPick: () {}, widget: Text(question.options[3])),
-      ],
+    return Container(
+      margin: EdgeInsets.all(50),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            question.text,
+            style: GoogleFonts.roboto(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 50, width: double.infinity),
+          ...question.options.map((option) {
+            return OptionButton(
+              onPick: () {},
+              widget: Text(option, textAlign: TextAlign.center),
+            );
+          }),
+        ],
+      ),
     );
   }
 }
