@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample/question_screen.dart';
 
-import 'gradient_container.dart';
+import 'shared/gradient_container.dart';
 import 'home_screen.dart';
 
 class Quiz extends StatefulWidget {
