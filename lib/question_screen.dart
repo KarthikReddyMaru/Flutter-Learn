@@ -42,7 +42,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 50, width: double.infinity),
-          ...question.options.map((option) {
+          ...question.getShuffledOptions().map((option) {
             return OptionButton(
               onPick: onPick,
               widget: Text(option, textAlign: TextAlign.center),
