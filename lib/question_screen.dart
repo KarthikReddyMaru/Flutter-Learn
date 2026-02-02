@@ -20,9 +20,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
   void onPick(String option) {
     widget.onOptionPick(option);
+    if (currentQuestionIndex + 1 < questions.length) {
     setState(() {
       currentQuestionIndex++;
     });
+    }
   }
 
   @override
