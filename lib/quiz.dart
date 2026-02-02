@@ -14,12 +14,17 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  var optionsSelected = [];
   String activeWidget = 'home_screen';
 
   void changeActiveWidget() {
     setState(() {
       activeWidget = 'question_screen';
     });
+  }
+
+  void onOptionPick(String option) {
+    optionsSelected.add(option);
   }
 
   @override
@@ -29,7 +34,7 @@ class _QuizState extends State<Quiz> {
         body: GradientContainer.purple(
           widget: activeWidget == 'home_screen'
               ? HomeScreen(changeActiveWidget)
-              : QuestionScreen(),
+              : QuestionScreen(onOptionPick: onOptionPick),
         ),
       ),
     );

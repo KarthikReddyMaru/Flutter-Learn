@@ -4,7 +4,9 @@ import 'package:sample/data/question_data.dart';
 import 'package:sample/shared/option_button.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({super.key, required this.onOptionPick});
+
+  final void Function(String) onOptionPick;
 
   @override
   State<QuestionScreen> createState() {
@@ -16,7 +18,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
   int currentQuestionIndex = 0;
 
-  void onPick() {
+  void onPick(String option) {
+    widget.onOptionPick(option);
     setState(() {
       currentQuestionIndex++;
     });
@@ -44,7 +47,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
           SizedBox(height: 50, width: double.infinity),
           ...question.getShuffledOptions().map((option) {
             return OptionButton(
-              onPick: onPick,
+              onPick: () { onPick(option); },
               widget: Text(option, textAlign: TextAlign.center),
             );
           }),
