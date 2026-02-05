@@ -11,6 +11,11 @@ class Expense {
   final Category category;
   final DateTime dateTime;
 
+  @override
+  String toString() {
+    return 'Expense{id: $id, title: $title, amount: $amount, category: $category, dateTime: $dateTime}';
+  }
+
   Expense({
     required this.title,
     required this.amount,
