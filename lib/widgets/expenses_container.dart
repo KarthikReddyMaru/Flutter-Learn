@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:sample/widgets/expense_card.dart';
 
 class ExpensesContainer extends StatelessWidget {
-  const ExpensesContainer({super.key, required this.expenses});
+  const ExpensesContainer({super.key, required this.expenses, required this.deleteExpense});
 
   final List<Expense> expenses;
+  final void Function(String expenseId) deleteExpense;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ExpensesContainer extends StatelessWidget {
     return ListView.builder(
       itemCount: totalExpenses,
       itemBuilder: (context, index) {
-        return ExpenseCard(expense: expenses[index]);
+        return ExpenseCard(expense: expenses[index], deleteExpense: deleteExpense);
       },
     );
   }

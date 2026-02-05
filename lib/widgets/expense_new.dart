@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sample/models/expense.dart';
-import 'package:sample/data/expenses_data.dart';
 
 class ExpenseNew extends StatefulWidget {
   const ExpenseNew({super.key, required this.addExpense});
@@ -15,17 +14,25 @@ class ExpenseNew extends StatefulWidget {
 }
 
 class _ExpenseNewState extends State<ExpenseNew> {
-  var title = TextEditingController();
-  var amount = TextEditingController();
+  var title = TextEditingController(text: "Sample");
+  var amount = TextEditingController(text: "20");
   Category category = Category.food;
   DateTime? selectedDate;
   var formattedDate = "";
+
+  @override
+  void dispose() {
+    title.dispose();
+    amount.dispose();
+    super.dispose();
+  }
 
   void onPressCalender(BuildContext context) async {
     selectedDate = await showDatePicker(
       context: context,
       firstDate: DateTime(DateTime.now().year - 10),
       lastDate: DateTime(DateTime.now().year + 10),
+      initialDate: DateTime.now(),
     );
     if (selectedDate != null) {
       setState(() {
