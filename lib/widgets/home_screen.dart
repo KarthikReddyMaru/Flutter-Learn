@@ -15,6 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  final themeData = ThemeData();
+
   List<Expense> expenses = ExpensesData().expenses;
 
   void addExpense(Expense expense) {
@@ -28,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
       expenses = expenses.where((expense) => expense.id != expenseId).toList();
     });
     ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Expense deleted")));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text("Expense deleted")));
   }
 
   void onAddExpense(BuildContext context) {
@@ -54,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: ExpensesContainer(expenses: expenses, deleteExpense: deleteExpense,),
+      body: ExpensesContainer(expenses: expenses, deleteExpense: deleteExpense),
     );
   }
 }
