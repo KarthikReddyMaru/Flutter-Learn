@@ -8,6 +8,9 @@ void main() {
     appBarTheme: AppBarTheme().copyWith(
       backgroundColor: colorScheme.primaryContainer,
     ),
+    navigationBarTheme: NavigationBarThemeData().copyWith(
+      backgroundColor: colorScheme.primaryContainer
+    )
   );
   runApp(MaterialApp(home: CategoriesScreen(), theme: themeData));
 }
