@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample/models/meal.dart';
+import 'package:sample/widget/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({super.key, required this.meals});
@@ -81,7 +82,7 @@ class MealsScreen extends StatelessWidget {
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () => onSelectMeal(context, meals[index]),
                       splashColor: Theme.of(context).splashColor,
                     ),
                   ),
@@ -111,5 +112,11 @@ class MealsScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void onSelectMeal(BuildContext context, Meal meal) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (ctx) => MealItem(meal: meal)));
   }
 }
