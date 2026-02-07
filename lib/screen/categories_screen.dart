@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sample/data/categories_data.dart';
 import 'package:sample/provider/category_provider.dart';
 import 'package:sample/widget/category_item.dart';
 import 'package:sample/widget/drawer_widget.dart';

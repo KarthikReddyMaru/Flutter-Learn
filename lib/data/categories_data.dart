@@ -25,7 +25,7 @@ const dummyMeals = [
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+        'https://images.archanaskitchen.com/images/recipes/world-recipes/pasta-recipes/Spaghetti_Pasta_Recipe_In_Creamy_Tomato_Sauce_Kids_Recipes_Made_With_Del_Monte_3_d6522012db.jpg',
     duration: 20,
     ingredients: [
       '4 Tomatoes',

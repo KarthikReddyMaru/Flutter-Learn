@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sample/provider/favorites_provider.dart';
+import 'package:sample/screen/meals_screen.dart';
 
-class NavigationBarWidget extends StatefulWidget {
+class NavigationBarWidget extends ConsumerStatefulWidget {
   const NavigationBarWidget({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  ConsumerState<NavigationBarWidget> createState() {
     return _NavigationBarWidgetState();
   }
 }
 
-class _NavigationBarWidgetState extends State<NavigationBarWidget> {
+class _NavigationBarWidgetState extends ConsumerState<NavigationBarWidget> {
   int _selectedIndex = 0;
 
   void onSelectIndex(int index) {
     setState(() {
       _selectedIndex = index;
     });
+
+    if (index == 1) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => MealsScreen(meals: ref.read(favoritesProvider)),
+        ),
+      );
+    }
   }
 
   @override
@@ -32,10 +43,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
           selectedIcon: Icon(Icons.set_meal_outlined),
           label: 'Meals',
         ),
-        NavigationDestination(
-          icon: Icon(Icons.star),
-          label: 'Favorites',
-        ),
+        NavigationDestination(icon: Icon(Icons.star), label: 'Favorites'),
       ],
     );
   }
