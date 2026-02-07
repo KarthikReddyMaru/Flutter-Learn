@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sample/screen/categories_screen.dart';
 
 void main() {
@@ -9,8 +10,12 @@ void main() {
       backgroundColor: colorScheme.primaryContainer,
     ),
     navigationBarTheme: NavigationBarThemeData().copyWith(
-      backgroundColor: colorScheme.primaryContainer
-    )
+      backgroundColor: colorScheme.primaryContainer,
+    ),
   );
-  runApp(MaterialApp(home: CategoriesScreen(), theme: themeData));
+  runApp(
+    ProviderScope(
+      child: MaterialApp(home: CategoriesScreen(), theme: themeData),
+    ),
+  );
 }
