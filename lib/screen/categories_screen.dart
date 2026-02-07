@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample/data/categories_data.dart';
 import 'package:sample/widget/category_item.dart';
+import 'package:sample/widget/drawer_widget.dart';
 import 'package:sample/widget/navigation_bar_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -10,7 +11,8 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Meals")),
-      bottomNavigationBar: NavigationBarItem(),
+      drawer: DrawerWidget(),
+      bottomNavigationBar: NavigationBarWidget(),
       body: GridView(
         padding: EdgeInsets.all(20),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

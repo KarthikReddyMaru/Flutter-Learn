@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class NavigationBarItem extends StatefulWidget {
-  const NavigationBarItem({super.key});
+class NavigationBarWidget extends StatefulWidget {
+  const NavigationBarWidget({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return _NavigationBarItemState();
+    return _NavigationBarWidgetState();
   }
 }
 
-class _NavigationBarItemState extends State<NavigationBarItem> {
+class _NavigationBarWidgetState extends State<NavigationBarWidget> {
   int _selectedIndex = 0;
 
   void onSelectIndex(int index) {
