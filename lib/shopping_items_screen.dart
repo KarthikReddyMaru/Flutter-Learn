@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sample/models/grocery_item.dart';
+import 'package:sample/new_expense.dart';
 import 'package:sample/provider/grocery_item_provider.dart';
 
 class ShoppingItemsScreen extends ConsumerWidget {
@@ -11,10 +12,15 @@ class ShoppingItemsScreen extends ConsumerWidget {
     List<GroceryItem> items = ref.watch(groceryItemProvider).toList();
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Your Groceries",
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        title: Text("Your Groceries"),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (ctx) => NewExpense())),
+            icon: Icon(Icons.add),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: items.length,
